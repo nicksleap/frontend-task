@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
-const Select = () => {
+const Select = (props) => {
   return (
     <div>
       <button><span>Назад</span></button>
@@ -13,4 +15,15 @@ const Select = () => {
   );
 };
 
-export default Select;
+Select.propTypes = {
+  delivery: PropTypes.object,
+};
+
+const mapStateToProps = (state) => ({
+  delivery: state.delivery,
+  bottle: state.bottle,
+});
+
+const mapDispatchToProps = null;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Select);
